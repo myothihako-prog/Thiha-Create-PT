@@ -1,45 +1,68 @@
-import tkinter as tk
-root = tk.Tk()
+import turtle as trtl
 
+writer = trtl.Turtle()
+writer.hideturtle()
+writer.speed(0)
+writer.goto(0,0)
+font = ("Arial", 8, "normal")
 #List for Algebra 1 and Spanish 1
 #If user chooses Algebra 1 then assign Algebra 1 to subject
 #Else choose Spanish 1 then assign Spanish 1 to subject
 
-spanish_questions = []
+#SPANISH QUESTIONS
+def spanish1():
+  writer.clear()#Makes sure there won't be a overlap
+  writer.write("What does El mean?", align="middle", font=font)#font is Arial, 8, and normal.
+  answer = input("1. He  \n2.Him \n3.Her \n4.The")#User Input to ask for answer
+  if answer == "1" or answer == "2" or answer == "3" or answer == "He" or answer == "Him" or answer == "Her":
+    print("You got it wrong! El actually means The, with the accent is He.")
+    writer.write("You got it wrong!", align="middle", font=font)
+  elif answer == 4:
+    print("You got it right!")
+    writer.write("You got it right!")
+  else:
+    print("Please only answer with the corresponding number or word.")
+    writer.write("Please only answer with the corresponding number or word.")
+    spanish1()#repeats the function if unvalid input is an answer
+    
+def spanish2():
+  writer.clear()
+  writer.write("What does cama mean?")
+  answer = input("1.House \n2.Bed \n3. Wall \n4. Shower")
+  if answer == "1" or answer == "3" or answer == "4" or answer=="House" or answer=="Wall" or answer == "Shower":
+    print("You got it wrong! Cama actually means Bed.")
+    writer.write("You got it wrong! Cama actually means Bed.")
+  elif answer == "2" or answer == "Cama":
+    print("You got it right!")
+    
+#LISTS for questions 
+spanish_questions = [spanish1, spanish2]
 algebra_questions = []
 #Ask User_Input if they want a Spanish 1 or Algebra 1 quiz.
+subject = input("Do you want to have to quiz of Spanish 1 or Algebra 1? Say S or A")
 
-# subject = input("Do you want to have to quiz of Spanish 1 or Algebra 1? Say S or A")
-root.title("Quiz")
-root.geometry("500x300")
-frame_label = tk.Frame(root, pady=10)
 
 def spanish_quiz():
-    #create root geometric box and write Questions
-    #Window
-    root.title("Spanish 1")
-    root.geometry("500x300")
-    #Question labeling and clicking right button
-    label = tk.Label(frame_label, text = "What is different between El and el?")
-    tk.Button()
-    
-label = tk.Label(root, text="Do you want to have to quiz of Spanish 1 or Algebra 1? Click S or A")
-label.pack(pady=10)
+  #Use Spanish questions 
+  
+
+def algebra_quiz():
+  
+
 #Create box for Spanish 1 and Algebra 1 quizs 
-btn_algebra1 = tk.Button(root, text="Algebra 1", command = spanish_quiz)
+btn_algebra1 = 
 
     
 def user_chosen_subject(subject):
-    
-       
-     if subject == "A":
-       spanish_quiz()
-     elif subject == "S":
-       
-     else:
-         print("Try Again")
+  if subject == "A":
+    for questions in range(5):
+      spanish_quiz(spanish_questions)
+  elif subject == "S":     
+    for questions in range(5):
+      algebra_quiz(algebra_questions)  
+  else:
+     print("Try Again")
    
 
 
-
-root.mainloop()
+trtl.mainloop()
