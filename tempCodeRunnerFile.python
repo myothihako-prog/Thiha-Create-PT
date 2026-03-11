@@ -4,7 +4,7 @@ writer = trtl.Turtle()
 writer.hideturtle()
 writer.speed(0)
 writer.goto(0,0)#location of written text 
-font = ("Arial", 20, "normal")#font
+font = ("Arial", 8, "normal")#font
 #List for Algebra 1 and Spanish 1
 #If user chooses Algebra 1 then assign Algebra 1 to subject
 #Else choose Spanish 1 then assign Spanish 1 to subject
@@ -14,7 +14,7 @@ def spanish1():
   writer.clear()#Makes sure there won't be a overlap
   writer.write("What does El mean?", align="center", font=font)#font is Arial, 8, and normal.
   #I want to use answer as a variable to get answer so I have to put within the function so that other functions wouldn't use the variable here
-  answer = input("1. He  \n2.Him \n3.Her \n4.The\n")#User Input to ask for answer
+  answer = input("1. He  \n2.Him \n3.Her \n4.The")#User Input to ask for answer
   if answer == "1" or answer == "2" or answer == "3" or answer == "He" or answer == "Him" or answer == "Her":#wrong answers
     print("You got it wrong! El actually means The, with the accent is He.")
     writer.write("You got it wrong!", align="center", font=font)
@@ -31,7 +31,7 @@ def spanish1():
 def spanish2():
   writer.clear()#clears any text that was inputted in writer
   writer.write("What does cama mean?")
-  answer = input("1.House \n2.Bed \n3. Wall \n4. Shower\n")
+  answer = input("1.House \n2.Bed \n3. Wall \n4. Shower")
   if answer == "1" or answer == "3" or answer == "4" or answer=="House" or answer=="Wall" or answer == "Shower":#wrong answers
     print("You got it wrong! Cama actually means Bed.")
     writer.write("You got it wrong! Cama actually means Bed.")
@@ -48,10 +48,9 @@ def spanish2():
 def spanish3():
   writer.clear()
   writer.write("What does tener mean?")
-  answer = input("1.To have \n 2.To make \n3.To run \n4. To read\n")
+  answer = input("1.To have \n 2.To make \n3.To run \n4. To read")
   if answer == "2" or answer == "3" or answer == "4" or answer == "To make" or answer == "To run" or answer == "To read":
     print("You got it wrong! Tener means to have.")
-    writer.clear()
     writer.write("You got it wrong! Tener means to have.")
   elif answer == "1" or answer == "To Have":
     print("You got it right!")
@@ -61,59 +60,8 @@ def spanish3():
     print("Please only answer with the corresponding number or word.")
     writer.clear()#removes overlap from last written font.
     writer.write("Please only answer with the corresponding number or word.")
-    spanish3()#restarts function
-    
-    
-#ALGEBRA QUESTIONS
-def algebra1():
-  writer.clear()
-  writer.write("What is the slope of y=5x+1")
-  answer = input("1.1/1 \n2.4/3 \n3.5/1 \n4.-5/1")
-  if answer == "1" or answer == "2" or answer == "4" or answer == "1/1" or answer == "4/3" or answer == "-5/1":
-    print("You got it wrong! In a equation of y=mx+b, m stands for slope.")
-    writer.clear()
-    writer.write("You got it wrong! In a equation of y=mx+b, m stands for slope.", algin="center", font=font)
-  elif answer == "2" or answer == "5/1":
-    print("")
+    spanish3()#restarts function 
 
-#Create list of right answer within function
-#if the input isn't in right answer, say you got it wrong
-
-#LISTS for questions 
-# I am using these functions that generate questions in a list to use when iterrating these questions for a spanish quiz
-spanish_questions = [spanish1, spanish2, spanish3]
-algebra_questions = []
-#EXECUTION
-#Ask User_Input if they want a Spanish 1 or Algebra 1 quiz.
-def ask_subject():
-  writer.clear()#makes sure there isn't an overlap
-  subject = input("Do you want to have to quiz of Spanish 1 or Algebra 1? Say S or A")
-  
-  #if subject isn't S or A then ask again
-  if not subject == "A" or not subject =="S":
-    print("Please input only S or A")
-    writer.clear()#makes sure there isn't am overlap
-    writer.write("Please input only S or A")
-    print("Try again.")
-    ask_subject()
-
-ask_subject()
-    
-
-def user_chosen_subject(subject):#uses input of subject to determine if subject is Algebra or Spanish
-  if subject == "S":
-    for question in spanish_questions():#iterate through each question in spanish_questions
-      #calls the function within spanish_questions list by using question() 
-      question()#1.spanish1() 2. spanish2() 3.spanish3()
-      
-  elif subject == "A":     
-    for question in algebra_questions():
-      question()
-      
-  else:#if it is not working somehow, make a loop for user_chosen_subject
-    print("Try again.")
-    user_chosen_subject(subject)
-   
-
+spanish1()
 
 trtl.mainloop()
