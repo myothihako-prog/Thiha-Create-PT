@@ -12,12 +12,12 @@ font = ("Arial", 20, "normal")#font
 #SPANISH QUESTIONS
 def spanish1():
   writer.clear()#Makes sure there won't be a overlap
-  writer.write("What does El mean?", align="center", font=font)#font is Arial, 8, and normal.
+  writer.write("What does El mean?", font=font)#font is Arial, 8, and normal.
   #I want to use answer as a variable to get answer so I have to put within the function so that other functions wouldn't use the variable here
   answer = input("1. He  \n2.Him \n3.Her \n4.The\n")#User Input to ask for answer
   if answer == "1" or answer == "2" or answer == "3" or answer == "He" or answer == "Him" or answer == "Her":#wrong answers
     print("You got it wrong! El actually means The, with the accent is He.")
-    writer.write("You got it wrong!", align="center", font=font)
+    writer.write("You got it wrong!", font=font)
   elif answer == "4" or answer == "The":
     print("You got it right!")
     writer.clear()#removes overlap from last written font.
@@ -62,23 +62,106 @@ def spanish3():
     writer.clear()#removes overlap from last written font.
     writer.write("Please only answer with the corresponding number or word.")
     spanish3()#restarts function
-    
-    
+#Less complex and simpified way to make questions using lists.
+#I got this idea from my teacher, note that this code is still what I created though. 
+def spanish4():
+  right_answers = ["hola",4]
+  writer.clear()
+  writer.write("What does hello mean in spanish?")
+  print("What does hello mean in spanish?")
+  answer = input("1.Amigo \n 2.Ella \n 3.El \n 4.Hola")
+  if answer in right_answers:
+    writer.clear()
+    writer.write("You got it right!")
+    print("You got it right!")
+  else:
+    writer.clear()
+    writer.write("You got it wrong! Hello means Hola in spanish.")
+    print("You got it wrong! Hello means Hola in spanish.")
+def spanish5():
+  right_answers = ["Buenos días", 3]
+  writer.clear()
+  writer.write("How do you say good morning in spanish?")
+  print("How do you say good morning in spanish?")
+  
+
 #ALGEBRA QUESTIONS
 def algebra1():
   writer.clear()
-  writer.write("What is the slope of y=5x+1")
+  writer.write("What is the slope of y=5x+1?")
   answer = input("1.1/1 \n2.4/3 \n3.5/1 \n4.-5/1")
   if answer == "1" or answer == "2" or answer == "4" or answer == "1/1" or answer == "4/3" or answer == "-5/1":
     print("You got it wrong! In a equation of y=mx+b, m stands for slope.")
     writer.clear()
     writer.write("You got it wrong! In a equation of y=mx+b, m stands for slope.", algin="center", font=font)
   elif answer == "2" or answer == "5/1":
-    print("")
+    print("You got it right!")
+    writer.clear()
+    writer.write("You got it right!")
+  else:
+    print("Please onmly answer with the corresponding number or word.")
+    writer.clear()#removes overlap from last written font.
+    writer.write("Please only answer with the corresponding number or word.")
 
+#Less complex and simpified way to make questions using lists.
+#I got this idea from my teacher, note that this code is still what I created though. 
+def algebra2():
+  right_answers = [1, 8]
+  writer.clear()
+  writer.write("What is the y-intercept of y=5x+8?")
+  answer = input("1.8 \n 2.5\n 3.1\n 4.5\n")
+  if answer in right_answers:
+    writer.clear()
+    writer.write("You got it right!")
+    print("You got it right!")
+  else:
+    writer.clear()
+    writer.write("You got it wrong! The y-intercept is 8.")
+    print("You got it wrong! The y-intercept is 8.")
+
+def algebra3():
+  right_answers = [3, 8]
+  writer.clear()
+  writer.write("Find x in x + 12 = 20")
+  answer = input("1.-8 \n2.12 \n3.8 \n 4.20 \n")
+  if answer in right_answers:
+    writer.clear()
+    writer.write("You got it right!")
+    print("You got it right!")
+  else:
+    writer.clear()
+    writer.write("You got it wrong! x is 8")
+    print("You got it wrong! x is 8")
+
+def algebra4():
+  right_answers = [-3/-5,1]
+  writer.clear()
+  writer.write("Find the slope of (3,5) and (8,8)")
+  answer = input("1.3/5 \n2.5/3 \n 3.5/-3 \n 3/8\n")
+  if answer in right_answers:
+    writer.clear()
+    writer.write("You got it right!")
+    print("You got it right!")
+  else:
+    writer.clear()
+    writer.write("You got it wrong! m is 3/5")
+    print("You got it wrong! m is 3/5")
 #Create list of right answer within function
 #if the input isn't in right answer, say you got it wrong
-
+def algebra5():
+  right_answers = [5,4]
+  writer.clear()
+  writer.write("Find the hyptenuse of a right triangle that has sides of 3 and 4.,", font=font)
+  answer = input("1.3\n 2.4\n 3.7 \n 4.5\n")
+  if answer in right_answers:
+    writer.clear()
+    writer.write("You got it right!")
+    print("You got it right!")
+  else:
+    writer.clear()
+    writer.write("You got it wrong! The hyptenuse is 5.", font=font)
+    print("You got it wrong! The hyptenuse is 5.")
+  
 #LISTS for questions 
 # I am using these functions that generate questions in a list to use when iterrating these questions for a spanish quiz
 spanish_questions = [spanish1, spanish2, spanish3]
